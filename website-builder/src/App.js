@@ -1,12 +1,14 @@
 import './App.css';
 function App() {
   
-const addElement = (elementTag) => {
+const addElement = (elementTag, elementName) => {
   console.log(`${elementTag}`);
   const elements = document.querySelector('.elements');
   const newElement = document.createElement(`input`);
   newElement.innerHTML = 'Type here';
   newElement.classList.add(`${elementTag}Element`);
+  newElement.setAttribute('title', `${elementTag}`);
+  newElement.setAttribute('placeholder', `${elementName}`);
   elements.appendChild(newElement);
 }
 
@@ -15,8 +17,9 @@ const addElement = (elementTag) => {
       <div className="Main">
         <div className='Element-Buttons'>
           {/* change button parameters to change generated elements */}
-          <button className='title-btn' onClick={() => addElement('h1')}>Title</button>
-          <button className='paragraph-btn' onClick={() => addElement('p')}>Paragraph</button>
+          <button className='header-btn' onClick={() => addElement('h1', 'Title')}>Title</button>
+          <button className='paragraph-btn' onClick={() => addElement('p' , 'Body')}>Body</button>
+          <button className='footer-btn' onClick={() => addElement('h2' , 'Footer')}>Footer</button>
         </div>
         <div className='elements'></div> 
       </div>      
